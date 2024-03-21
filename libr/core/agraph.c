@@ -4559,8 +4559,7 @@ R_API bool r_core_visual_graph(RCore *core, RAGraph *g, RAnalFunction *_fcn, int
 		if (root) {
 			RGraph *dg = r_graph_dom_tree (g->graph, root);
 			if (dg) {
-				R_LOG_INFO ("pwn");
-				r_graph_free (g->graph);
+				// XXX double free - r_graph_free (g->graph);
 				g->graph = dg;
 			} else {
 				R_LOG_WARN ("Cannot compute the dominance tree");
